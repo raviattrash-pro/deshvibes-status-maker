@@ -1,0 +1,50 @@
+.canvas-editor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+  justify-content: center;
+}
+
+.canvas-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(255, 153, 51, 0.08),
+    0 0 40px rgba(19, 136, 8, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  max-height: calc(100vh - 180px);
+  aspect-ratio: 9 / 16;
+}
+
+.status-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+}
+
+.canvas-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 300px;
+}
+
+.canvas-actions .progress-bar-container {
+  width: 100%;
+}
+
+.spin {
+  animation: spin-slow 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .canvas-frame {
+    max-height: calc(100vh - 220px);
+  }
+}

@@ -1,0 +1,88 @@
+.crop-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease;
+}
+
+.crop-modal {
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.3s ease;
+}
+
+.crop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.crop-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.crop-close {
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.crop-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.crop-area {
+  position: relative;
+  height: 400px;
+  background: #000;
+}
+
+.crop-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.zoom-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.zoom-range {
+  flex: 1;
+  height: 4px;
+  accent-color: var(--saffron);
+  cursor: pointer;
+}
+
+.crop-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}

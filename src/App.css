@@ -1,0 +1,396 @@
+.app-shell {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===================== HEADER ===================== */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  z-index: 100;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-back {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--saffron);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, var(--saffron), #fff 50%, var(--green-flag));
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.logo-subtitle {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ===================== MAIN CONTENT ===================== */
+.app-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== EDITOR LAYOUT ===================== */
+.editor-layout {
+  display: flex;
+  height: 100%;
+  gap: 0;
+}
+
+.editor-preview-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: radial-gradient(ellipse at center, rgba(255, 153, 51, 0.03) 0%, transparent 70%);
+}
+
+.editor-sidebar {
+  width: 320px;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0;
+  background: rgba(10, 10, 20, 0.6);
+}
+
+.sidebar-section {
+  padding: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.sidebar-field {
+  margin-bottom: 16px;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.field-select {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: all 0.2s ease;
+}
+
+.field-select:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.1);
+}
+
+.field-select option {
+  background: #1a1a2e;
+  color: white;
+}
+
+/* ===================== UPLOAD AREA ===================== */
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 30px;
+  border: 2px dashed rgba(255, 153, 51, 0.3);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.03), rgba(19, 136, 8, 0.03));
+}
+
+.upload-area:hover {
+  border-color: var(--saffron);
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.08), rgba(19, 136, 8, 0.08));
+  color: white;
+}
+
+.upload-area svg {
+  opacity: 0.6;
+}
+
+.upload-area span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.uploaded-preview {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.uploaded-preview img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* ===================== TEXT INPUTS ===================== */
+.field-input, .field-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.field-input:focus, .field-textarea:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.1);
+}
+
+.field-input::placeholder, .field-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.field-textarea {
+  resize: vertical;
+  min-height: 60px;
+  line-height: 1.5;
+}
+
+/* ===================== MUSIC TOGGLE & AUDIO TRIMMER ===================== */
+.music-toggle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.toggle-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 26px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: linear-gradient(135deg, var(--saffron), var(--green-flag));
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(22px);
+}
+
+.local-audio-field {
+  margin-bottom: 16px;
+}
+
+.audio-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.audio-upload-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--saffron);
+}
+
+.audio-file-name {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--saffron);
+  word-break: break-all;
+}
+
+.audio-trimmer {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trimmer-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trim-slider {
+  width: 100%;
+  accent-color: var(--saffron);
+  cursor: pointer;
+}
+
+.trim-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* ===================== MOBILE RESPONSIVENESS ===================== */
+@media (max-width: 768px) {
+  .app-shell {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .app-content {
+    overflow-y: auto;
+  }
+
+  .app-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .editor-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .editor-preview-area {
+    padding: 16px;
+    height: auto;
+  }
+
+  .editor-sidebar {
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(10, 10, 20, 0.8);
+    overflow-y: visible;
+  }
+
+  .sidebar-section {
+    padding: 18px;
+  }
+}
